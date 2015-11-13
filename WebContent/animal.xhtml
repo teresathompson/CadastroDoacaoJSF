@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Animais</title>
+</h:head>
+<h:body>
+
+	<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="Animal" style="margin-bottom:20px">
+    
+        <h:panelGrid columns="2" cellpadding="5">
+        <h:outputLabel for="nomeanimal" value="Name do animal:" style="font-weight:bold" />
+        <p:inputText id="nomeanimal"/>
+        
+        <h:outputText for="especie" value="Especie:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="especie" value="#{animalBean.animal.especie}">
+   			<f:selectItems value="#{animalBean.especies}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>	
+        
+              
+        <p:outputLabel for="button" value="Data de nascimento:" style="font-weight:bold"/>
+        <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+        
+        <h:outputText for="sexo" value="Sexo:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="sexo" value="#{animalBean.animal.sexo}">
+   			<f:selectItems value="#{animalBean.sexos}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>	
+        
+       
+        
+        <h:outputText for="racacao" value="Raça de cão:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="racacao" value="#{animalBean.animal.racacao}">
+   			<f:selectItems value="#{animalBean.racacao}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+   		
+   		<h:outputText for="racagato" value="Raça de gato:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="racagato" value="#{animalBean.animal.racagato}">
+   			<f:selectItems value="#{animalBean.racagato}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>		
+        
+        <h:outputLabel for="pelagem" value="Cor da pelagem:" style="font-weight:bold" />
+        <p:inputText id="pelagem"/>
+        
+       <h:outputText for="temperamento" value="Temperamento:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="temperamento" value="#{animalBean.animal.temperamento}">
+   			<f:selectItems value="#{animalBean.temperamento}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>		
+        
+        <h:outputLabel for="peso" value="Peso:" style="font-weight:bold" />
+        <p:inputText id="peso"/>    
+	
+		
+        
+      
+            <p:commandButton value="Cadastrar"   action="#{animalBean.cadastrar}" type="button" />
+            
+        </h:panelGrid>
+    </p:fieldset> 
+    
+</h:form>
+</h:body>
+</html>
+
+
+
+
+
+

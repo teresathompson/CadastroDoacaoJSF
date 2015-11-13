@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Animal</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText for="nome" value="Nome:"/>
+		<h:inputText id="nome" value="#{tutorBean.tutor.nome}"/>
+		<br/>
+		
+		<h:outputText for="telefone" value="Telefone:"/>
+		<h:inputText id="telefone" value="#{tutorBean.tutor.telefone}"/>
+		<br/>
+		
+		<h:outputText for="email" value="Email:"/>
+		<h:inputText id="email" value="#{tutorBean.tutor.email}"/>
+		<br/>
+		
+		<h:outputText for="endereco" value="Endereco:"/>
+		<h:selectOneMenu id="endereco" value="#{tutorBean.tutor.endereco}">
+   			<f:selectItems value="#{tutorBean.enderecos}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+   		
+   		<h:outputText for="tipo" value="Tipo:"/>
+   		<h:selectOneMenu id="tipo" value="#{tutorBean.tutor.tipo}">
+   			<f:selectItems value="#{tutorBean.tipos}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+		
+		
+		<h:dataTable value="#{animalBean.animais}" var="animal"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row, order-table-even-row">
+   			
+   			<h:column>
+   				<f:facet name="header">Nome</f:facet>#{animal.nome}
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Peso</f:facet>#{animal.peso}
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Pelagem</f:facet>#{animal.pelagem}
+   			</h:column>
+   		
+   		</h:dataTable>
+		
+		
+		
+		<h:commandButton value="Cadastrar" action="#{tutorBean.cadastrar}"/>
+	</h:form>
+</h:body>
+</html>

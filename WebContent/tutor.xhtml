@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Tutor</title>
+</h:head>
+
+
+<h:body>
+
+	<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="Tutor" style="margin-bottom:20px">
+    
+        <h:panelGrid columns="2" cellpadding="5">
+        
+        <h:outputLabel for="nome" value="Nome:" style="font-weight:bold" />
+        <p:inputText id="nome" value="#{tutorBean.tutor.nome}"/>
+        
+        <h:outputLabel for="tipo" value="Tipo:" style="font-weight:bold"/>
+   		<h:selectOneMenu id="tipo" value="#{tutorBean.tutor.tipo}">
+   			<f:selectItems value="#{tutorBean.tipos}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+        
+                
+        <h:outputLabel for="telefone" value="Telefone:" style="font-weight:bold" />
+		<p:inputMask  id="telefone" value="#{tutorBean.tutor.telefone}" mask="(999) 9999-9999"/>
+		
+		
+		<h:outputLabel for="email" value="Email:"  style="font-weight:bold"/>
+		<h:inputText id="email" value="#{tutorBean.tutor.email}">
+		<f:validator validatorId="emailValidator"></f:validator>
+		</h:inputText><p></p>
+		<h:message for="email" errorClass="errorMessage"
+		infoClass="infoMessage"
+		warnClass="warnMessage"></h:message>
+		
+		
+		
+		
+		
+		
+   		
+   		
+   		
+   		<p:commandButton value="Cadastrar"    action="#{tutorBean.cadastrar}" type="button" />
+   		
+		
+		</h:panelGrid>
+    </p:fieldset> 
+    
+       
+		
+		
+	
+        
+            
+      
+            
+            
+       
+    
+
+
+ 
+</h:form>
+</h:body>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Histórico</title>
+</h:head>
+<h:body>
+
+	<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="Histórico" style="margin-bottom:20px">
+    
+        <h:panelGrid columns="2" cellpadding="5">
+        
+                
+         <h:outputText for="vacinas" value="Vacinas:" style="font-weight:bold" />
+   		<h:selectOneMenu id="vacinas" value="#{vacinaBean.vacina.tipoVacina}">
+   			<f:selectItems value="#{vacinaBean.tipoVacina}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+        
+              
+        <p:outputLabel for="buttonvacina" value="Data vacina:" style="font-weight:bold"/>
+        <p:calendar id="buttonvacina" value="#{calendarView.date3}" showOn="button" />
+        
+       <h:outputLabel for="vermifugo" value="Vermifugo:" style="font-weight:bold" />
+        <p:inputText id="vermifugo"/>
+        
+              
+        <p:outputLabel for="buttonvermifugo" value="Data vermífugo:" style="font-weight:bold"/>
+        <p:calendar id="buttonvermifugo" value="#{calendarView.date3}" showOn="button" />
+        
+        <h:outputText for="tipo" value="Tipo:"/>
+   		<h:selectOneMenu id="tipo" value="#{tutorBean.tutor.tipo}">
+   			<f:selectItems value="#{tutorBean.tipos}" 
+   						   var="e"
+   						   itemLabel="#{e.description}"
+   						   itemValue="#{e.code}"/>
+   		</h:selectOneMenu>
+        
+        	
+            
+            
+        </h:panelGrid>
+    </p:fieldset> 
+    
+</h:form>
+</h:body>
+</html>
+
+
+
